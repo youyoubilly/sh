@@ -1,0 +1,80 @@
+## 🎯 **Goal**
+
+Create a clean, permanent, and branded way to host and run your shell scripts (like `vps-check.sh`) from your own domain — so you can simply run:
+
+```bash
+bash <(curl -fsSL https://sh.youyoubilly.com/vps-check.sh)
+```
+
+and get the latest version automatically whenever you update your GitHub repo.
+
+---
+
+## 🧩 **Tasks Overview**
+
+### **1. Create a GitHub Repo**
+
+* Name it something like **`youyoubilly/sh`** or **`youyoubilly/scripts`**
+* Add your scripts inside a `/docs` folder (for Pages)
+
+  ```
+  /docs/
+    vps-check.sh
+    another-tool.sh
+  ```
+* Commit & push to the `main` branch.
+
+---
+
+### **2. Enable GitHub Pages**
+
+* Go to **Settings → Pages**
+* Set:
+
+  * **Source**: `Deploy from branch`
+  * **Branch**: `main`
+  * **Folder**: `/docs`
+* GitHub will give you a Pages URL like:
+
+  ```
+  https://youyoubilly.github.io/sh/vps-check.sh
+  ```
+
+---
+
+### **3. Add Your Custom Domain**
+
+* Under the same **Pages settings**, set **Custom domain**:
+
+  ```
+  sh.youyoubilly.com
+  ```
+* Then add a **CNAME record** in your DNS:
+
+  ```
+  sh  CNAME  youyoubilly.github.io
+  ```
+* Enable HTTPS (GitHub will auto-issue a certificate).
+
+---
+
+### **4. Run Script on Any VPS**
+
+Once DNS propagates (usually < 30 min), you can run:
+
+```bash
+bash <(curl -fsSL https://sh.youyoubilly.com/vps-check.sh)
+```
+
+---
+
+### **5. Future Maintenance**
+
+* Just edit scripts in `/docs/` → commit → auto-update online.
+* Add more scripts freely:
+
+  ```
+  https://sh.youyoubilly.com/deploy.sh
+  https://sh.youyoubilly.com/init-server.sh
+  ```
+* You can version with tags or folders later (e.g. `/v1/vps-check.sh`).
