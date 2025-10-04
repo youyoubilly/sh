@@ -1,6 +1,23 @@
-# sh — Short, Self-Hosted Script Endpoints
+# sh — Self-Hosted Script Endpoints
 
-**Goal:** Serve small, trusted shell scripts over a short, branded URL via **GitHub Pages + custom domain**, so any server can run tools like:
+Serve shell scripts via GitHub Pages + custom domain for easy remote execution.
+
+## 🚀 Usage
 
 ```bash
-bash <(curl -fsSL https://sh.yourdomain.com/vps-check.sh)
+# VPS health check
+bash <(curl -fsSL https://sh.youyoubilly.com/vps-check.sh)
+
+# Quick mode (skip slow checks)
+bash <(curl -fsSL https://sh.youyoubilly.com/vps-check.sh) --quick
+```
+
+## 📁 Scripts
+
+- `vps-check.sh` - Comprehensive VPS health and configuration check
+
+## 🔧 Setup
+
+- **Repository**: [youyoubilly/sh](https://github.com/youyoubilly/sh)
+- **Domain**: `sh.youyoubilly.com` (GitHub Pages + custom domain)
+- **Auto-updates**: Push to `main` branch → instantly available online
